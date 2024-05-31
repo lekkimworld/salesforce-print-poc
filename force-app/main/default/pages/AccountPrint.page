@@ -1,0 +1,53 @@
+<apex:page standardController="Account" lightningStylesheets="true"> 
+    <apex:includeLightning />
+	<apex:pageBlock title="Account Summary">
+        <apex:pageBlockSection >
+            Name: {! Account.Name } <br/>
+            Phone: {! Account.Phone } <br/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    <h1>
+        Standard Aura component
+    </h1>
+    <div id="placeholder_button" />
+    <hr />
+    <h1>
+        Custom Aura component
+    </h1>
+    <div id="placeholder_testaura" />
+    <hr />
+    <h1>
+        Lighting Component
+    </h1>
+    <div id="placeholder_testlwc" />
+    <hr/>
+    <script>
+        $Lightning.use("c:lcvfTest", function() {
+            $Lightning.createComponent("lightning:button",
+                { label : "Press Me!" },
+                "placeholder_button",
+                function(cmp) {
+                    console.log("lightning:button was created");
+                }
+            );
+            $Lightning.createComponent("c:testLWC",
+                { recordId : "{! Account.Id }" },
+                "placeholder_testlwc",
+                function(cmp) {
+                    console.log("c:testLWC was created");
+                }
+            );
+            $Lightning.createComponent("c:testAura",
+                { recordId : "{! Account.Id }" },
+                "placeholder_testaura",
+                function(cmp) {
+                    console.log("c:testAura was created");
+                }
+            );
+        });
+    	window.setTimeout(() => {
+            window.print();
+        }, 1000);
+    </script>
+</apex:page>
