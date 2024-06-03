@@ -48,6 +48,6 @@
         });
     	window.setTimeout(() => {
             window.print();
-        }, 1000);
+        }, 2500);
     </script>
 </apex:page>
