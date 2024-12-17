@@ -6,7 +6,12 @@
             Phone: {! Account.Phone } <br/>
         </apex:pageBlockSection>
     </apex:pageBlock>
-    
+
+    <h1>
+        Lighting Component (showSvg)
+    </h1>
+    <div id="placeholder_showsvg" />
+    <hr/>
     <h1>
         Standard Aura component
     </h1>
@@ -22,6 +27,7 @@
     </h1>
     <div id="placeholder_testlwc" />
     <hr/>
+    
     <script>
         $Lightning.use("c:lcvfTest", function() {
             $Lightning.createComponent("lightning:button",
@@ -45,9 +51,17 @@
                     console.log("c:testAura was created");
                 }
             );
+            $Lightning.createComponent("c:showSvg",
+                { recordId : "{! Account.Id }" },
+                "placeholder_showsvg",
+                function(cmp) {
+                    console.log("c:showSvg was created");
+                }
+            );
         });
     	window.setTimeout(() => {
             window.print();
         }, 2500);
+        
     </script>
 </apex:page>

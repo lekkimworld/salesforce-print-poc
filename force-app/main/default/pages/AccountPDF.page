@@ -1,0 +1,10 @@
+<apex:page standardController="Account" extensions="JWTApexController" renderAs="pdf">
+
+	<apex:pageBlock title="Account Summary">
+        <apex:pageBlockSection >
+            Name: {! Account.Name } <br/>
+            Phone: {! Account.Phone } <br/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:image id="imageHerokuPng" value="https://shielded-castle-53358-66ecc2b45c83.herokuapp.com/png?jwt={!jwt}" />
+</apex:page>
